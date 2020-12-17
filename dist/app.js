@@ -111,6 +111,20 @@ $(document).ready(function () {
         $('.dischi-box').append(html);
       }
     }
+  }); // $("#genres").change(function() {
+  //     $.ajax({
+  //         url: '../database/dischi.php',
+  //         method: 'POST',
+  //         context: document.body, success: function(){
+  //         if () {
+  //
+  //         }
+  //     }});
+  // });
+
+  $('#genres').on('change', function () {
+    var optionVal = $("#genres option:selected").val();
+    alert("Selected Option Text: " + optionVal);
   });
 });
 
