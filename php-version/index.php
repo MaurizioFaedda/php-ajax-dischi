@@ -5,16 +5,17 @@
     <head>
         <meta charset="utf-8">
         <title></title>
+        <link rel="stylesheet" href="../dist/app.css">
     </head>
     <body>
         <header>
 
         </header>
         <main>
-            <section>
+            <section class="container">
                 <div class="container dischi-box">
                     <?php foreach ($dischi as $disco) { ?>
-                        <div class="disco-box">
+                        <div class="card">
                            <div class="disco-content">
                                <div class="poster-img">
                                    <img src="<?php echo $disco['poster'] ?>"alt="">
