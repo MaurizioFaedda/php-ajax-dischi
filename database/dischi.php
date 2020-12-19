@@ -72,10 +72,37 @@
         ]
     ];
 
+    $genres = [];
+    foreach ($dischi as $disco) {
+        $genre = $disco['genre'];
+        if(!in_array($genre, $genres)){
+            $genres[] = $genre;
+        }
+    }
+
+    if(!empty($_GET) && !empty($_GET['genre'])) {
+
+        $genre = $_GET['genre'];
+
+        $dischi_filtrati = [];
+
+
+        foreach ($dischi as $disco) {
+
+            if ($disco['genre'] === $genre) {
+                $dischi_filtrati[] = $disco;
+            }
+        }
+    } else {
+        $dischi_filtrati = $dischi;
+    }
+
+
+
     if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest' ) {
     //request is ajax
     header('Content-Type: application/json');
-    echo json_encode($dischi);
+    echo json_encode($dischi_filtrati);
     }
 
 
